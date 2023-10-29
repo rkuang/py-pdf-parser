@@ -76,9 +76,7 @@ def load(
         if la_params.get("all_texts"):
             figures = (element for element in page if isinstance(element, LTFigure))
             for figure in figures:
-                elements += [
-                    element for element in figure if isinstance(element, LTTextBox)
-                ]
+                parse_layout(figure, elements)
 
         if not elements:
             logger.warning(
@@ -95,3 +93,11 @@ def load(
     # pytype: disable=wrong-arg-types
     return PDFDocument(pages=pages, pdf_file_path=pdf_file_path, **kwargs)
     # pytype: enable=wrong-arg-types
+
+def parse_layout(layout, elements):
+    """Function to recursively parse the layout tree."""
+    for lt_obj in layout:
+        if isinstance(lt_obj, LTTextBox):
+            elements.append(lt_obj)
+        elif isinstance(lt_obj, LTFigure):
+            parse_layout(lt_obj, elements)
