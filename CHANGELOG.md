@@ -6,6 +6,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.13.0] - 2024-07-23
+
+### Added
+- Added extra filtering methods for ElementList
+- Make sure tests and docs are not included in binary distribution wheels (PyPi) and source distribution (sdist).
+
+## [0.12.0] - 2023-11-10
+
+### Added
+- Added support for opening password protected files ([#350](https://github.com/jstockwin/py-pdf-parser/pull/350))
+
 ## [0.11.0] - 2023-08-07
 
 ### Changed

@@ -14,9 +14,8 @@ ROOT_DIR = os.path.dirname(__file__)
 
 setup(
     name="py-pdf-parser",
-    packages=find_packages(),
-    exclude=["tests.*", "tests", "docs", "docs.*"],
-    version="0.11.0",
+    packages=find_packages(exclude=["tests", "tests.*", "docs", "docs.*"]),
+    version="0.13.0",
     url="https://github.com/jstockwin/py-pdf-parser",
     license="BSD",
     description="A tool to help extracting information from structured PDFs.",
